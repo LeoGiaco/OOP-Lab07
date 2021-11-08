@@ -37,17 +37,25 @@ public enum Sport {
      * - soccer
      * 
      */
-
+	BASKET("Basketball", 5, Place.INDOOR),
+	VOLLEY("Volleyball", 6, Place.INDOOR),
+	TENNIS("Tennis", 1, Place.OUTDOOR),
+	BIKE("Biking", 3, Place.OUTDOOR),
+	F1("Formula 1", 2, Place.OUTDOOR),
+	MOTOGP("MotoGP", 2, Place.OUTDOOR),
+	SOCCER("Soccer", 11, Place.OUTDOOR);
     /*
-     * TODO
+     * 
      * 
      * [FIELDS]
      * 
      * Declare required fields
      */
-
+	private final int members;
+	private final String name;
+	private final Place place;
     /*
-     * TODO
+     * 
      * 
      * [CONSTRUCTOR]
      * 
@@ -55,7 +63,11 @@ public enum Sport {
      * 
      * - Sport(final Place place, final int noTeamMembers, final String actualName)
      */
-
+	private Sport(final String name, final int members, final Place place) {
+		this.name = name;
+		this.members = members;
+		this.place = place;
+	}
     /*
      * TODO
      * 
@@ -81,4 +93,50 @@ public enum Sport {
      * 
      * Returns the string representation of a sport
      */
+	/**
+	 * Returns a boolean that shows if the sport is individual or not.
+	 * @return true if the number of team members is = 1.
+	 */
+	public boolean isIndividualSport() {
+		return this.members == 1;
+	}
+	
+	/**
+	 * Returns a boolean that shows if the sport is indoor or not.
+	 * @return true if place is = {@link Place}.INDOOR.
+	 */
+	public boolean isIndoorSport() {
+		return this.place == Place.INDOOR;
+	}
+	
+	/**
+	 * Retrieves the name of the sport.
+	 * @return the name of the sport.
+	 */
+	public String getName() {
+		return this.name;
+	}
+	
+	/**
+	 * Retrieves the place where the sport is practiced.
+	 * @return a {@link Place}.
+	 */
+	public Place getPlace() {
+		return this.place;
+	}
+	
+	/**
+	 * Returns the number of team members for the sport.
+	 * @return a number.
+	 */
+	public int getMembers() {
+		return this.members;
+	}
+	
+	/**
+	 * Returns a string representation of the sport.
+	 */
+	public String toString() {
+		return "[Sport: name= " + this.getName() + ", place=" + this.getPlace() + ", members=" + this.getMembers() + "]";
+	}
 }
