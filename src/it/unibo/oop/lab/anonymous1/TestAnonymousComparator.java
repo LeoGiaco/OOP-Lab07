@@ -77,13 +77,15 @@ public final class TestAnonymousComparator {
          * 
          * REFER TO LESSON 13-Advanced-Mechanisms.pdf, slide 41
          */
-        denzelUsers.sort(new Comparator<User>() {
+        var comparator = new Comparator<User>() {
 
 			@Override
 			public int compare(User o1, User o2) {
 				return Integer.compare(o1.getAge(), o2.getAge());
 			}
-        });
+        };
+        
+        denzelUsers.sort(comparator);
         /*
          * expected Result
          */
@@ -114,13 +116,7 @@ public final class TestAnonymousComparator {
          * NOTE: in order to sort a list think about a method of the utility
          * class Collections
          */
-        rossiUsers.sort(new Comparator<User>() {
-
-			@Override
-			public int compare(User o1, User o2) {
-				return Integer.compare(o2.getAge(), o1.getAge());
-			}
-        });
+        rossiUsers.sort(comparator.reversed());
         /*
          * expected Result
          */
