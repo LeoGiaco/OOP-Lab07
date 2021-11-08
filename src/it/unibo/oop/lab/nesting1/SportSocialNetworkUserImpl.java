@@ -144,7 +144,7 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
          */
     	private final String name;
     	
-        public Sport(String name) {
+        public Sport(final String name) {
 			this.name = name;
 		}
 
