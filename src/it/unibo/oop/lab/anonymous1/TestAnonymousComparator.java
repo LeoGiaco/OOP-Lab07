@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.print.attribute.IntegerSyntax;
+
 import it.unibo.oop.lab.socialnetwork.SocialNetworkUser;
 import it.unibo.oop.lab.socialnetwork.SocialNetworkUserImpl;
 import it.unibo.oop.lab.socialnetwork.User;
@@ -79,7 +81,7 @@ public final class TestAnonymousComparator {
 
 			@Override
 			public int compare(User o1, User o2) {
-				return o1.getAge() - o2.getAge();
+				return Integer.compare(o1.getAge(), o2.getAge());
 			}
         });
         /*
@@ -116,7 +118,7 @@ public final class TestAnonymousComparator {
 
 			@Override
 			public int compare(User o1, User o2) {
-				return o2.getAge() - o1.getAge();
+				return Integer.compare(o2.getAge(), o1.getAge());
 			}
         });
         /*
