@@ -24,7 +24,7 @@ public enum Sport {
 	
 	private final String name;
 
-	private Sport(String name) {
+	private Sport(final String name) {
 		this.name = name;
 	}
 
