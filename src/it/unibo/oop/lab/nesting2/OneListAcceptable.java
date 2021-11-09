@@ -6,14 +6,13 @@ public class OneListAcceptable<T> implements Acceptable<T> {
 
 	private final List<T> sequenceList;
 
-	public OneListAcceptable(List<T> sequenceList) {
+	public OneListAcceptable(final List<T> sequenceList) {
 		this.sequenceList = sequenceList;
 	}
 
 	@Override
 	public Acceptor<T> acceptor() {
-		// TODO Auto-generated method stub
-		return null;
+		return new OneListAcceptor(List.copyOf(this.sequenceList));
 	}
 	
 	public class OneListAcceptor implements Acceptor<T> {
@@ -27,7 +26,7 @@ public class OneListAcceptable<T> implements Acceptable<T> {
 		}
 
 		@Override
-		public void accept(T newElement) throws ElementNotAcceptedException {
+		public void accept(final T newElement) throws ElementNotAcceptedException {
 			if(position >= this.sequence.size() || !this.sequence.get(this.position).equals(newElement)) {
 				throw new ElementNotAcceptedException(newElement);
 			} else {
